@@ -1,0 +1,22 @@
+{
+  "name": "electron-anguler-demo",
+  "version": "1.0.0",
+  "description": "TEST",
+  "main": "electron/dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently -k \"npm:angular:start\" \"npm:electron:start\"",
+    "angular:start": "cd angular-electron && ng serve",
+    "electron:start": "wait-on tcp:4200 && cd electron && npm start",
+    "build": "cd angular-electron && npm run build && cd .. && npm run electron:build",
+    "electron:build": "cd electron && npm run electron:build"
+  },
+  "author": "Raj Hirani",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.2.2",
+    "wait-on": "^6.0.1"
+  },
+  "dependencies": {
+  }
+}
